@@ -13,6 +13,7 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader' },
       { test:/\.css$/, loader:'style-loader!css-loader' },
       { test: /\.(gif|png)/, loader: 'file-loader' },
+      { test: /\.html/, loader: 'html-loader?minimize=false'}
     ]
   },
   devServer: {

@@ -8,7 +8,8 @@ function onPlayerAvailable() {
     height: '100%',
     mediaControl: {
       plugins: ['player_issue_report']
-    }
+    },
+    skipDFP: true
   });
 
   player.attachTo(document.querySelector('#player'));
