@@ -1,43 +1,24 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
-  module: {
-    loaders: [
-      {
-        test: /src\/.+.js$/,
-        loader: 'babel',
-        query: {
-          compact: true,
-        }
-      },
-      {
-        test: /\.scss$/,
-        loaders: ['css', "sass"]
-      },
-      {
-        test: /\.html$/, loader: 'html?minimize=true'
-      }
-    ],
-  },
-  resolve: {
-    extensions: ['', '.js'],
-  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'clappr-videos-offer-end-screen.js',
-    library: 'ClapprVideosOfferEndScreen',
-    libraryTarget: 'umd',
+    publicPath: '/dist',
+    filename: 'sample-plugin.js',
+    library: 'SamplePlugin',
   },
-  plugins: [
-  new webpack.optimize.UglifyJsPlugin({
-    output: {comments: false}
-  }),
-  new webpack.ContextReplacementPlugin(
-      /moment[\/\\]locale$/, /pt-br/
-  )],
-  externals: {
-    'moment': 'moment',
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader' },
+      { test:/\.css$/, loader:'style-loader!css-loader' },
+      { test: /\.(gif)/, loader: 'file-loader' },
+    ]
+  },
+  devServer: {
+    host: '0.0.0.0',
+    port: '8082',
+    contentBase: 'public/',
+    disableHostCheck: true
   }
-};
+}
