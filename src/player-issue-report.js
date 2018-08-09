@@ -1,15 +1,15 @@
 // import './assets/styles.css'
-import parrotGif from './assets/parrot.gif'
+import help from './assets/help.png'
 
-export default class SamplePlugin extends WP3.MediaControlPlugin {
+class PlayerIssueReport extends WP3.MediaControlPlugin {
 
-  get name() { return 'sample_plugin' }
+  get name() { return 'player_issue_report' }
   get tagName() { return 'img' }
-  get panel() { return 'upper' }
-  get position() { return 'left' }
+  get panel() { return 'lower' }
+  get position() { return 'right' }
   get attributes() {
     return {
-      'class': 'sample-plugin'
+      'class': 'player-issue-report'
     }
   }
 
@@ -32,6 +32,8 @@ export default class SamplePlugin extends WP3.MediaControlPlugin {
   }
 
   render() {
-    this.el.setAttribute('src', parrotGif)
+    this.el.setAttribute('src', help)
   }
 }
+
+export default PlayerIssueReport

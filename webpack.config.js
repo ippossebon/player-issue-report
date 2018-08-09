@@ -5,14 +5,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist',
-    filename: 'sample-plugin.js',
-    library: 'SamplePlugin',
+    filename: 'player-issue-report.js',
+    library: 'PlayerIssueReport',
   },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader' },
       { test:/\.css$/, loader:'style-loader!css-loader' },
-      { test: /\.(gif)/, loader: 'file-loader' },
+      { test: /\.(gif|png)/, loader: 'file-loader' },
     ]
   },
   devServer: {

@@ -1,3 +1,3 @@
 export default () => {
-  return require('./plugin')
+  return require('./player-issue-report')
 }

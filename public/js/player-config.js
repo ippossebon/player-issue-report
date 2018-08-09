@@ -2,12 +2,12 @@ function onPlayerAvailable() {
   var player = new WM.Player({
     videosIDs: '5964532',
     plugins: {
-      core: [SamplePlugin()]
+      core: [PlayerIssueReport()]
     },
     width: '100%',
     height: '100%',
     mediaControl: {
-      plugins: ['sample_plugin']
+      plugins: ['player_issue_report']
     }
   });
 
