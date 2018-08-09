@@ -1,5 +1,8 @@
 // import './assets/styles.css'
+const { UICorePlugin, Styler, template } = Clappr
+
 import help from './assets/help.png'
+import IssueReportModal from './assets/issue-report.html'
 
 class PlayerIssueReport extends WP3.MediaControlPlugin {
 
@@ -7,6 +10,8 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
   get tagName() { return 'img' }
   get panel() { return 'lower' }
   get position() { return 'right' }
+  get template() { return template(IssueReportModal) }
+  get container() { return this.core.getCurrentContainer() }
   get attributes() {
     return {
       'class': 'player-issue-report'
@@ -24,11 +29,20 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
   }
 
   onMediaControlShow() {
-    // your code here - some action when Media Control is visible
+    const items = this.$el
+
+    items.off('click')
+    items.on('click', () => this.onClick())
+  }
+
+  onClick() {
+    this.container.playback.pause()
+    this.mediaControlPlugin.setKeepVisible()
+    this.mediaControl.trigger(WP3.Events.MEDIACONTROL_MODAL_SHOW, this.template, {hidePanels: true})
   }
 
   onMediaControlHide() {
-    // your code here - some action when Media Control is hidden
+    
   }
 
   render() {
