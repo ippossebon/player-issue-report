@@ -1,8 +1,9 @@
 import './assets/issue-report-dialog.css'
 const { UICorePlugin, Styler, template } = Clappr
 
-import help from './assets/help.png'
+import report from './assets/report.png'
 import IssueReportModal from './assets/issue-report-dialog.html'
+import browserReport from '../public/js/browser-report'
 
 class PlayerIssueReport extends WP3.MediaControlPlugin {
 
@@ -21,6 +22,7 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
   constructor(core) {
     super(core)
     this.core = core
+    this.report = new BrowseReport().export()
   }
 
   bindEvents() {
@@ -40,6 +42,7 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
     this.container.playback.pause()
     this.mediaControlPlugin.setKeepVisible()
     this.mediaControl.trigger(WP3.Events.MEDIACONTROL_MODAL_SHOW, this.template, {hidePanels: true})
+    console.log(this.report)
   }
 
   onMediaControlHide() {
@@ -47,7 +50,7 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
   }
 
   render() {
-    this.el.setAttribute('src', help)
+    this.el.setAttribute('src', report)
   }
 }
 

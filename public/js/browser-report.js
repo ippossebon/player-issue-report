@@ -1,8 +1,4 @@
-module.exports = class BrowseReport {
-    constructor() {
-        this.ip = null
-        this.getUserIp()
-    }
+class BrowseReport {
 
     export() {
         return {
@@ -11,8 +7,7 @@ module.exports = class BrowseReport {
             "browserWidth": this.getWidth(),
             "browserheight": this.getHeight(),
             "screenWidth": this.getScreenWidth(),
-            "screenHeight": this.getScreenWidth(),
-            "userIp": this.ip
+            "screenHeight": this.getScreenHeight()
         }
     }
     getBrowser() {
@@ -37,15 +32,4 @@ module.exports = class BrowseReport {
     getScreenHeight() {
         return screen.height
     }
-
-    getUserIp() {
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) 
-                this.ip = request.responseText
-        }
-        request.open("GET", 'https://api.ipify.org?format=text', true); // true for asynchronous 
-        request.send(null);
-    }
-
 }
