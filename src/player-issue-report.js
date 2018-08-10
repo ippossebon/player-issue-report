@@ -2,7 +2,7 @@
 const { UICorePlugin, Styler, template } = Clappr
 
 import help from './assets/help.png'
-import IssueReportModal from './assets/issue-report.html'
+import IssueReportModal from './assets/issue-report-dialog.html'
 
 class PlayerIssueReport extends WP3.MediaControlPlugin {
 
