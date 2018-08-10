@@ -1,8 +1,8 @@
-// import './assets/styles.css'
+import './assets/issue-report-dialog.css'
 const { UICorePlugin, Styler, template } = Clappr
 
 import help from './assets/help.png'
-import IssueReportModal from './assets/issue-report.html'
+import IssueReportModal from './assets/issue-report-dialog.html'
 
 class PlayerIssueReport extends WP3.MediaControlPlugin {
 
@@ -28,6 +28,7 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
     this.listenTo(this.core.mediaControl, Clappr.Events.MEDIACONTROL_HIDE, this.onMediaControlHide)
   }
 
+
   onMediaControlShow() {
     const items = this.$el
 
@@ -42,7 +43,7 @@ class PlayerIssueReport extends WP3.MediaControlPlugin {
   }
 
   onMediaControlHide() {
-    
+
   }
 
   render() {
